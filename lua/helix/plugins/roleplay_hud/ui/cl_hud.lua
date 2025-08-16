@@ -37,6 +37,9 @@ HLXRPHUD_TotalJailTime = HLXRPHUD_TotalJailTime or 0
 
 local hungermod = ix.plugin.list["hungermod"]
 
+function PLUGIN:ShouldHideBars() return true end
+function PLUGIN:CanDrawAmmoHUD() return false end
+
 -- ==========================
 -- HOOK HUD
 -- ==========================
