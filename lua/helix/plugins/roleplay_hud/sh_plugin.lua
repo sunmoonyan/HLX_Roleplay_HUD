@@ -19,9 +19,41 @@ PLUGIN.requires = {}
 ix.config.Add("basicHealthBar", false, "Replace the health bar by a simple one.", nil, {
     category = "Roleplay HUD"
 })
+ix.config.Add("skinHud", "basic", "Choose a skin (basic/translucent)", nil, {
+    category = "Roleplay HUD"
+})
 
 if SERVER then
-    AddCSLuaFile("ui/cl_hud.lua")
+    AddCSLuaFile("skins/basic.lua")
+    AddCSLuaFile("skins/translucent.lua")
 else 
-    include("ui/cl_hud.lua")
+    include("skins/basic.lua")
+    include("skins/translucent.lua")
+
+  surface.CreateFont("Default:20", {
+    font = "Arial",
+    size = 20,
+    weight = 800
+  })  
+
+
+HLXRPHUD_HungerMod = ix.plugin.list["hungermod"]
+HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
+HLXRPHUD_HEART_ICON    = Material("hud/hearth.png")
+HLXRPHUD_FOOD_ICON     = Material("hud/food.png")
+HLXRPHUD_STAMINA_ICON  = Material("hud/stamina.png")
+HLXRPHUD_AMMO_ICON     = Material("hud/ammo.png")
+HLXRPHUD_STAR_ICON     = Material("hud/star.png")
+HLXRPHUD_JAIL_ICON     = Material("hud/jail.png")
+HLXRPHUD_XP_ICON       = Material("hud/xp.png")
+
+function PLUGIN:ShouldHideBars() return true end
+function PLUGIN:CanDrawAmmoHUD() return false end
+
+
+
+
+
+
+
 end
