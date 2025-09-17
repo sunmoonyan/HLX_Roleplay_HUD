@@ -38,7 +38,6 @@ else
 
 
 HLXRPHUD_HungerMod = ix.plugin.list["hungermod"]
-HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
 HLXRPHUD_HEART_ICON    = Material("hud/hearth.png")
 HLXRPHUD_FOOD_ICON     = Material("hud/food.png")
 HLXRPHUD_STAMINA_ICON  = Material("hud/stamina.png")

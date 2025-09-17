@@ -13,7 +13,12 @@ local lastHealth = nil -- valeur précédente
 local policelevel = 1
 
 hook.Add("HUDPaint", "HLXRPHUD"..Skin_Name, function()
+<<<<<<< HEAD
 HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
+=======
+    HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
+    
+>>>>>>> ed3dfe0 (fixing bug)
     if ix.config.Get("skinHud") != Skin_Name then return end
 
     local scrW, scrH = ScrW(), ScrH()
