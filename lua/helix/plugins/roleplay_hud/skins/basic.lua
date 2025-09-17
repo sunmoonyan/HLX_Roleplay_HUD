@@ -15,6 +15,9 @@ local policelevel = 1
 hook.Add("HUDPaint", "HLXRPHUD"..Skin_Name, function()
 HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
     if ix.config.Get("skinHud") != Skin_Name then return end
+    
+    if IsValid(ix.gui.menu) && (ix.gui.menu.currentAlpha > 200)  then return end
+    if IsValid(ix.gui.characterMenu) && (ix.gui.characterMenu.currentAlpha > 200)  then return end
 
     local scrW, scrH = ScrW(), ScrH()
     local function ScaleW(px) return scrW * (px / 1920) end

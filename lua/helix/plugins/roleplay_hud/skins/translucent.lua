@@ -17,6 +17,9 @@ hook.Add("HUDPaint", "HLXRPHUD"..Skin_Name, function()
 HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
 =======
     HLXRPHUD_HUD_COLOR     = ix.config.Get("color")
+
+    if IsValid(ix.gui.menu) && (ix.gui.menu.currentAlpha > 200)  then return end
+    if IsValid(ix.gui.characterMenu) && (ix.gui.characterMenu.currentAlpha > 200)  then return end
     
 >>>>>>> ed3dfe0 (fixing bug)
     if ix.config.Get("skinHud") != Skin_Name then return end
