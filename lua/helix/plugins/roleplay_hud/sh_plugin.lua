@@ -45,6 +45,10 @@ HLXRPHUD_AMMO_ICON     = Material("hud/ammo.png")
 HLXRPHUD_STAR_ICON     = Material("hud/star.png")
 HLXRPHUD_JAIL_ICON     = Material("hud/jail.png")
 HLXRPHUD_XP_ICON       = Material("hud/xp.png")
+HLXRPHUD_WantedTime = 0
+HLXRPHUD_PoliceXP = 0
+HLXRPHUD_PoliceNextLevel = 0
+HLXRPHUD_JailTime = 0
 
 function PLUGIN:ShouldHideBars() return true end
 function PLUGIN:CanDrawAmmoHUD() return false end
