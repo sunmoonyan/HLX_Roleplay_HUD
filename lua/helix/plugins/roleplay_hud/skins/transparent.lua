@@ -1,4 +1,4 @@
-local Skin_Name =  "translucent"
+local Skin_Name =  "transparent"
 
 local SmoothClipRatio   = 0
 local SmoothAmplitude   = 0
@@ -70,7 +70,7 @@ local function DrawHealthBox(x, y, w, h, value)
         local time      = CurTime() * -5
 
         if ply:IsSprinting() then
-          amplitude = amplitude +1
+          amplitude = amplitude + 0.5
         end
 
         if energy > 0 then
@@ -137,6 +137,23 @@ local function DrawMiniBox(x, y, w, h, value, iconMat)
         surface.DrawRect(x+w*0.4, y+h*0.45, (w*0.4) , h*0.1)
         surface.SetDrawColor(255, 255, 255)
         surface.DrawRect(x+w*0.4, y+h*0.45, (w*0.4) * (value / 100), h*0.1)
+
+        surface.SetDrawColor(HLXRPHUD_HUD_COLOR)
+        surface.DrawOutlinedRect(x, y, w, h, 1)
+end
+
+local function DrawLargeBox(x, y, w, h, value, iconMat)
+        surface.SetDrawColor(15, 15, 15, 75)
+        surface.DrawRect(x, y, w, h)
+
+        surface.SetDrawColor(255, 255, 255)
+        surface.SetMaterial(iconMat)
+        surface.DrawTexturedRect(x + ScaleW(15), y + ScaleH(10), iconSize, iconSize)
+
+        surface.SetDrawColor(150, 150, 150,200)
+        surface.DrawRect(x+w*0.2, y+h*0.45, (w*0.7) , h*0.1)
+        surface.SetDrawColor(255, 255, 255)
+        surface.DrawRect(x+w*0.2, y+h*0.45, (w*0.7) * (value / 100), h*0.1)
 
         surface.SetDrawColor(HLXRPHUD_HUD_COLOR)
         surface.DrawOutlinedRect(x, y, w, h, 1)
@@ -286,7 +303,7 @@ local wantedTimeLeft = math.max(HLXRPHUD_WantedTime - CurTime(), 0)
     DrawMiniBox(hudX, hudY + ScaleH(50), hudWidth / 2 - barSpacing, hudHeight, SmoothFood, HLXRPHUD_FOOD_ICON)
     DrawMiniBox(hudX + hudWidth / 2 + barSpacing, hudY + ScaleH(50), hudWidth / 2 - barSpacing, hudHeight, stamina, HLXRPHUD_STAMINA_ICON)
     else
-    DrawMiniBox(hudX , hudY + ScaleH(50), hudWidth , hudHeight, stamina, HLXRPHUD_STAMINA_ICON)
+    DrawLargeBox(hudX , hudY + ScaleH(50), hudWidth , hudHeight, stamina, HLXRPHUD_STAMINA_ICON)
     end
 
     if HLXRPHUD_ShowPoliceXP == true then 
