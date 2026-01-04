@@ -54,9 +54,4 @@ function PLUGIN:ShouldHideBars() return true end
 function PLUGIN:CanDrawAmmoHUD() return false end
 
 
-
-
-
-
-
 end
