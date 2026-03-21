@@ -19,16 +19,18 @@ PLUGIN.requires = {}
 ix.config.Add("basicHealthBar", false, "Replace the health bar by a simple one.", nil, {
     category = "Roleplay HUD"
 })
-ix.config.Add("skinHud", "basic", "Choose a skin (basic/transparent)", nil, {
+ix.config.Add("skinHud", "transparent", "Choose a skin (basic/transparent)", nil, {
     category = "Roleplay HUD"
 })
 
 if SERVER then
     AddCSLuaFile("skins/basic.lua")
     AddCSLuaFile("skins/transparent.lua")
+    AddCSLuaFile("skins/test.lua")
 else 
     include("skins/basic.lua")
     include("skins/transparent.lua")
+    include("skins/test.lua")
 
   surface.CreateFont("Default:20", {
     font = "Arial",
