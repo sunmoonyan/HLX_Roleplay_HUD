@@ -265,9 +265,9 @@ local function DrawLargeBox(x, y, w, h, value, iconMat)
         surface.DrawTexturedRect(x + ScaleW(15), y + ScaleH(10), iconSize, iconSize)
 
         surface.SetDrawColor(150, 150, 150,200)
-        surface.DrawRect(x+w*0.2, y+h*0.45, (w*0.7) , h*0.1)
+        surface.DrawRect(x+w*0.2, y+h*0.475, (w*0.7) , h*0.0725)
         surface.SetDrawColor(255, 255, 255)
-        surface.DrawRect(x+w*0.2, y+h*0.45, (w*0.7) * (value / 100), h*0.1)
+        surface.DrawRect(x+w*0.2, y+h*0.475, (w*0.7) * (value / 100), h*0.0725)
 
         DrawRoundedCorners(x, y, w, h, 8, HLXRPHUD_HUD_COLOR, 30)
         DrawRoundedOutlineAdjusted(x, y, w, h, 8, 1, HLXRPHUD_HUD_COLOR, -1)
@@ -376,16 +376,16 @@ end
 local function DrawPoliceXP(x, y, w, h)
         local policexp = HLXRPHUD_PoliceXP
         local currentlevel = HLXRPHUD_PoliceNextLevel-1 or 0
-        local currentlevelxp = Police_Level[HLXRPHUD_PoliceNextLevel-1] or 0
+        local currentlevelxp = HelixPoliceConfig.Police_Level[HLXRPHUD_PoliceNextLevel-1] or 0
 
         local nextlevel = HLXRPHUD_PoliceNextLevel
-        local nextlevelxp = Police_Level[HLXRPHUD_PoliceNextLevel]
+        local nextlevelxp = HelixPoliceConfig.Police_Level[HLXRPHUD_PoliceNextLevel]
 
         local ratioxp = policexp - currentlevelxp / nextlevelxp - currentlevelxp
 
         SmoothPoliceXP = Lerp(5 * FrameTime(), SmoothPoliceXP, policexp)
-        if math.Round(SmoothPoliceXP,7) >= (Police_Level[policelevel] or 0) then policelevel = HLXRPHUD_PoliceNextLevel end
-        local SmoothVar = (SmoothPoliceXP - (Police_Level[policelevel-1] or 0)) / ((Police_Level[policelevel] or 1) - (Police_Level[policelevel-1] or 0))
+        if math.Round(SmoothPoliceXP,7) >= (HelixPoliceConfig.Police_Level[policelevel] or 0) then policelevel = HLXRPHUD_PoliceNextLevel end
+        local SmoothVar = (SmoothPoliceXP - (HelixPoliceConfig.Police_Level[policelevel-1] or 0)) / ((HelixPoliceConfig.Police_Level[policelevel] or 1) - (HelixPoliceConfig.Police_Level[policelevel-1] or 0))
         SmoothVar = math.Clamp(SmoothVar, 0, 1)
 
         surface.SetDrawColor(15, 15, 15, 75)
